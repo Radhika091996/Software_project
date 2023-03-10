@@ -4,16 +4,6 @@ import java.util.HashMap;
 
 class WordCount {
     HashMap<String, Integer> wordCountMap = new HashMap<String, Integer>();
-    File file;
-    BufferedReader br;
-//    public WordCount(String filePath) throws Exception {
-//        file = new File(filePath);
-//        br = new BufferedReader(new FileReader(file));
-//        String line;
-//        while ((line = br.readLine()) != null){
-//            getWordCountMap(line);
-//        }
-//    }
 
     public HashMap<String, Integer> getWordCountMap(String data)  throws Exception{
         String[] words=null;

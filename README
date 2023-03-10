@@ -1,0 +1,19 @@
+Running Using Jar:
+    java -cp <WordAnalysisProject_PATH> Main "Test String"
+    example:
+    java -cp WordAnalysisProject-1.0-SNAPSHOT.jar Main "This is Test String to Test the program"
+    Sample output:
+    Running word freq count with input : This is Test String to Test the program
+    {the=1, Test=2, This=1, is=1, String=1, to=1, program=1}
+
+If you don't provide input, the program takes default test string.
+    Command :
+    java -cp WordAnalysisProject-1.0-SNAPSHOT.jar Main
+    Output:
+    Running word freq count with input : apple banana apple orange /
+    {banana=1, orange=1, apple=2, /=1}
+
+
+To build the source files:
+    Run command in the project directory: mvn clean install
+    Above step should generate target directory and jar.
