@@ -1,5 +1,6 @@
 Running Using Jar:
     java -cp <WordAnalysisProject_PATH> Main "Test String"
+    Note : Executable jar file is located under target directory.
     example:
     java -cp WordAnalysisProject-1.0-SNAPSHOT.jar Main "This is Test String to Test the program"
     Sample output:
@@ -17,3 +18,12 @@ If you don't provide input, the program takes default test string.
 To build the source files:
     Run command in the project directory: mvn clean install
     Above step should generate target directory and jar.
+
+To Run test:
+    You would need maven setup. Please follow instruction at https://maven.apache.org/install.html.
+    Once maven is installed. Run following command in project directory.
+    mvn test
+
+
+
+

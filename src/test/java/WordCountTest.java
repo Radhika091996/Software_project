@@ -87,8 +87,8 @@ class WordCountTest {
     @Test
     void stringWithPunctuation_shouldReturnExpectedResult() throws Exception{
         Map actual, expected;
-        expected = Map.of("apple", 1,"banana",1,"/", 1 , "," ,1);
-        actual = wordCount.getWordCountMap("apple     /   ,   banana");
+        expected = Map.of("aPPlE", 1,"banana",1,"/", 1 , "," ,1, "APPLE",1);
+        actual = wordCount.getWordCountMap("APPLE  aPPlE   /   ,   banana");
         assertEquals(expected,actual);
     }
 }
