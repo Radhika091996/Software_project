@@ -6,6 +6,10 @@ Running Using Jar:
     Sample output:
     Running word freq count with input : This is Test String to Test the program
     {the=1, Test=2, This=1, is=1, String=1, to=1, program=1}
+    Number of characters are :27
+    Number of lines are :1
+
+    
 
 If you don't provide input, the program takes default test string.
     Command :
@@ -13,6 +17,8 @@ If you don't provide input, the program takes default test string.
     Output:
     Running word freq count with input : apple banana apple orange /
     {banana=1, orange=1, apple=2, /=1}
+    Number of characters are :22
+    Number of lines are :1
 
 
 To build the source files:
