@@ -1,5 +1,6 @@
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestTemplate;
 
 import java.util.Collections;
 import java.util.Map;
@@ -90,5 +91,73 @@ class WordCountTest {
         expected = Map.of("aPPlE", 1,"banana",1,"/", 1 , "," ,1, "APPLE",1);
         actual = wordCount.getWordCountMap("APPLE  aPPlE   /   ,   banana");
         assertEquals(expected,actual);
+    }
+    // Test Number of Lines
+    @Test
+    void numOfLine_moreThenOneLine_shouldReturnExpectedResult()throws Exception{
+        wordCount.getWordCountMap("abc xyz \n   \n pqr");
+        assertEquals(3,wordCount.numberOfLines);
+    }
+
+    @Test
+    void numOfLine_emptyFile_shouldReturnExpectedResult()throws Exception{
+        wordCount.getWordCountMap("");
+        assertEquals(0,wordCount.numberOfLines);
+    }
+
+    @Test
+    void numOfLine_singleLine_shouldReturnExpectedResult()throws Exception{
+        wordCount.getWordCountMap(" this is apple. this is banana ");
+        assertEquals(1,wordCount.numberOfLines);
+    }
+    @Test
+    void numOfLine_countEmptyLine_shouldReturnExpectedResult()throws Exception{
+        wordCount.getWordCountMap("this is apple \n \n \n this is banana" );
+        assertEquals(4, wordCount.numberOfLines);
+    }
+
+    // Test Number of Characters
+    @Test
+    void numOfChar_validString_shouldReturnExpectedResult()throws Exception{
+        wordCount.getWordCountMap("abs test");
+        assertEquals(7,wordCount.numOfCharacters);
+    }
+
+
+    @Test
+    void numOfChar_oneWord_shouldReturnExpectedResult()throws Exception{
+        wordCount.getWordCountMap("r");
+        assertEquals(1,wordCount.numOfCharacters);
+
+    }
+     @Test
+    void numOfChar_ingnoreSpecialCharcter_shouldReturnExpectedResult()throws Exception{
+        wordCount.getWordCountMap("@#^*)this");
+        assertEquals(4,wordCount.numOfCharacters);
+
+    }
+    @Test
+    void numOfChar_emptyWordCount_shouldReturnExpectedResult()throws Exception{
+        wordCount.getWordCountMap("");
+        assertEquals(0,wordCount.numOfCharacters);
+    }
+
+
+    @Test
+    void numOfChar_ignoreNumbers_shouldReturnExpectedResult()throws Exception{
+        wordCount.getWordCountMap("123software");
+        assertEquals(8,wordCount.numOfCharacters);
+    }
+
+    @Test
+    void numOfChar_whiteSpace_shouldReturnExpectedResult()throws Exception{
+        wordCount.getWordCountMap("                     ");
+        assertEquals(0,wordCount.numOfCharacters);
+    }
+
+    @Test
+    void numOfChar_multipleLine_shouldReturnExpectedResult()throws Exception{
+        wordCount.getWordCountMap("      abc   \n    xyz        ");
+        assertEquals(6,wordCount.numOfCharacters);
     }
 }
