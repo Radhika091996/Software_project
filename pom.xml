@@ -6,6 +6,10 @@
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
+        <pmd-config-url>
+            /Users/radhika/Desktop/Spring_2023/Software engineering/project/src/main/resources/ruleset-pmd.xml
+        </pmd-config-url>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
     <groupId>org.example</groupId>
     <artifactId>WordAnalysisProject</artifactId>
@@ -23,10 +27,35 @@
         <pluginManagement>
             <plugins>
                 <plugin>
+                    <artifactId>maven-pmd-plugin</artifactId>
+                    <configuration>
+                        <includeTests>true</includeTests>
+                        <minimumTokens>100</minimumTokens>
+                        <linkXref>true</linkXref>
+                        <targetJdk>17</targetJdk>
+                        <rulesets>
+                            <ruleset>${pmd-config-url}</ruleset>
+                        </rulesets>
+                        <failOnViolation>true</failOnViolation>
+                    </configuration>
+                    <executions>
+                        <execution>
+                            <phase>test</phase>
+                            <goals>
+                                <goal>pmd</goal>
+                                <goal>cpd</goal>
+                                <goal>cpd-check</goal>
+                                <goal>check</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+                </plugin>
+                <plugin>
                     <groupId>org.sonarsource.scanner.maven</groupId>
                     <artifactId>sonar-maven-plugin</artifactId>
                     <version>3.7.0.1746</version>
                 </plugin>
+
                     <plugin>
                         <groupId>org.springframework.boot</groupId>
                         <artifactId>spring-boot-maven-plugin</artifactId>

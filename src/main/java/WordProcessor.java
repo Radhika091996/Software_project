@@ -1,16 +1,12 @@
-import java.io.*;
-
 import java.util.HashMap;
 
 
-class WordCount {
+class WordProcessor {
     HashMap<String, Integer> wordCountMap = new HashMap<String, Integer>();
+
     //HashMap< String,Integer> characterCountMap=new HashMap<>();
     int numberOfLines =0;
     int numOfCharacters=0;
-
-
-
 
     public HashMap<String, Integer> getWordCountMap(String data)  throws Exception{
         String[] words=null;
@@ -23,19 +19,14 @@ class WordCount {
         }
         numberOfLines=1;
         words = data.split("\\s+|\\t|\\n");
-
         // calculate new line data
         for (char character:data.toCharArray()){
-
             if(character  == '\n' )
                 numberOfLines+=1;
         }
-
         updateCount(words);
         return wordCountMap;
     }
-
-
 
     private void updateCount(String[] words) {
         for (String word: words) {
@@ -54,5 +45,24 @@ class WordCount {
                 wordCountMap.put(word,1);
             }
         }
+    }
+
+    public String replaceWords(String data, String toReplace, String replaceWith){
+         if(replaceWith.contains(" ")){
+             throw new IllegalArgumentException(replaceWith);
+
+         }
+         if(toReplace.contains(" ")){
+             throw new IllegalArgumentException(toReplace);
+         }
+        String[] words = data.trim().split("\\s+");
+        int i =0;
+        for(String word:words){
+            if(word.equals(toReplace)){
+                words[i]=replaceWith;
+            }
+            i++;
+        }
+        return String.join(" ",words);
     }
 }
