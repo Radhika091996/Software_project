@@ -4,7 +4,6 @@ import java.util.HashMap;
 class WordProcessor {
     HashMap<String, Integer> wordCountMap = new HashMap<String, Integer>();
 
-    //HashMap< String,Integer> characterCountMap=new HashMap<>();
     int numberOfLines =0;
     int numOfCharacters=0;
 

@@ -193,9 +193,8 @@ class WordProcessorTest {
         assertEquals("",actual);
 
     }
-// CHANGE TEST CASES NAME
     @Test
-    void wordReplacement_multiplewithReplaceString_shouldReturnExpectedResult() throws Exception{
+    void wordReplacement_moreThanTwoReplaceWithWord_shouldReturnExpectedResult() throws Exception{
         assertThrows(IllegalArgumentException.class, () -> {
             wordProcessor.replaceWords( "abc ravi","abc","pqr xyz");
         });
@@ -208,16 +207,23 @@ class WordProcessorTest {
 
     }
     @Test
-    void wordReplacement_replacewordthatdoesnothaveininputstring_shouldReturnExpectedResult() throws Exception{
+    void wordReplacement_zeroOccuranceOfReplacementWord_shouldReturnExpectedResult() throws Exception{
         String actual=wordProcessor.replaceWords( "abc xyz pqr","mno","xyz");
         assertEquals("abc xyz pqr",actual);
 
     }
 
     @Test
-    void wordReplacement_word_shouldReturnExpectedResult() throws Exception{
+    void wordReplacement_partialWordMatch_shouldNorReplaceWord() throws Exception{
         String actual=wordProcessor.replaceWords( "abdpqr","abd","xyz");
         assertEquals("abdpqr",actual);
+
+    }
+
+    @Test
+    void wordReplacement_firstAndLastWord_shouldReturnExpectedResult() throws Exception{
+        String actual=wordProcessor.replaceWords( "abc pqr abc","abc","xyz");
+        assertEquals("xyz pqr xyz",actual);
 
     }
 

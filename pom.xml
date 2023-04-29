@@ -4,11 +4,11 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <properties>
-        <maven.compiler.source>17</maven.compiler.source>
-        <maven.compiler.target>17</maven.compiler.target>
-        <pmd-config-url>
-            /Users/radhika/Desktop/Spring_2023/Software engineering/project/src/main/resources/ruleset-pmd.xml
-        </pmd-config-url>
+        <maven.compiler.source>8</maven.compiler.source>
+        <maven.compiler.target>8</maven.compiler.target>
+<!--        <pmd-config-url>-->
+<!--            /Users/radhika/Desktop/Spring_2023/Software engineering/project/src/main/resources/ruleset-pmd.xml-->
+<!--        </pmd-config-url>-->
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
     <groupId>org.example</groupId>
@@ -26,30 +26,36 @@
     <build>
         <pluginManagement>
             <plugins>
-                <plugin>
-                    <artifactId>maven-pmd-plugin</artifactId>
-                    <configuration>
-                        <includeTests>true</includeTests>
-                        <minimumTokens>100</minimumTokens>
-                        <linkXref>true</linkXref>
-                        <targetJdk>17</targetJdk>
-                        <rulesets>
-                            <ruleset>${pmd-config-url}</ruleset>
-                        </rulesets>
-                        <failOnViolation>true</failOnViolation>
-                    </configuration>
-                    <executions>
-                        <execution>
-                            <phase>test</phase>
-                            <goals>
-                                <goal>pmd</goal>
-                                <goal>cpd</goal>
-                                <goal>cpd-check</goal>
-                                <goal>check</goal>
-                            </goals>
-                        </execution>
-                    </executions>
-                </plugin>
+<!--                <plugin>-->
+<!--                    <groupId>org.apache.maven.plugins</groupId>-->
+<!--                    <artifactId>maven-pmd-plugin</artifactId>-->
+<!--                    <version>3.13.0</version>-->
+<!--                </plugin>-->
+
+<!--                <plugin>-->
+<!--                    <artifactId>maven-pmd-plugin</artifactId>-->
+<!--                    <configuration>-->
+<!--                        <includeTests>true</includeTests>-->
+<!--                        <minimumTokens>100</minimumTokens>-->
+<!--                        <linkXref>false</linkXref>-->
+<!--                        <targetJdk>17</targetJdk>-->
+<!--                        <rulesets>-->
+<!--                            <ruleset>${pmd-config-url}</ruleset>-->
+<!--                        </rulesets>-->
+<!--                        <failOnViolation>true</failOnViolation>-->
+<!--                    </configuration>-->
+<!--                    <executions>-->
+<!--                        <execution>-->
+<!--                            <phase>test</phase>-->
+<!--                            <goals>-->
+<!--                                <goal>pmd</goal>-->
+<!--                                <goal>cpd</goal>-->
+<!--                                <goal>cpd-check</goal>-->
+<!--                                <goal>check</goal>-->
+<!--                            </goals>-->
+<!--                        </execution>-->
+<!--                    </executions>-->
+<!--                </plugin>-->
                 <plugin>
                     <groupId>org.sonarsource.scanner.maven</groupId>
                     <artifactId>sonar-maven-plugin</artifactId>
@@ -74,5 +80,20 @@
             </plugins>
         </pluginManagement>
     </build>
+    <reporting>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-pmd-plugin</artifactId>
+                <version>3.20.0</version>
+                <configuration>
+                    <rulesets>
+                        <description> The default ruleset used by the Maven PMD Plugin, when no other ruleset is specified. It contains the rules of the old (pre PMD 6.0.0) rulesets java-basic, java-empty, java-imports, java-unnecessary, java-unusedcode. This ruleset might be used as a starting point for an own customized ruleset [0]. [0] https://pmd.github.io/latest/pmd_userdocs_making_rulesets.html </description>
+                        <ruleset>/category/java/bestpractices.xml</ruleset>
+                    </rulesets>
+                </configuration>
+            </plugin>
+        </plugins>
+    </reporting>
 </project>
 

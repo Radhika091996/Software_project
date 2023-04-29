@@ -1,3 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<pmd xmlns="http://pmd.sourceforge.net/report/2.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://pmd.sourceforge.net/report/2.0.0 http://pmd.sourceforge.net/report_2_0_0.xsd" version="6.53.0" timestamp="2023-04-24T15:37:52.549">
+<pmd xmlns="http://pmd.sourceforge.net/report/2.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://pmd.sourceforge.net/report/2.0.0 http://pmd.sourceforge.net/report_2_0_0.xsd" version="6.53.0" timestamp="2023-04-28T22:30:51.397">
+<file name="/Users/radhika/Desktop/Spring_2023/Software engineering/project/src/main/java/WordProcessor.java">
+<violation beginline="36" endline="36" begincolumn="21" endcolumn="56" rule="UselessParentheses" ruleset="Code Style" class="WordProcessor" method="updateCount" externalInfoUrl="https://pmd.github.io/pmd-6.53.0/pmd_rules_java_codestyle.html#uselessparentheses" priority="4">
+Useless parentheses.
+</violation>
+<violation beginline="36" endline="36" begincolumn="63" endcolumn="98" rule="UselessParentheses" ruleset="Code Style" class="WordProcessor" method="updateCount" externalInfoUrl="https://pmd.github.io/pmd-6.53.0/pmd_rules_java_codestyle.html#uselessparentheses" priority="4">
+Useless parentheses.
+</violation>
+</file>
 </pmd>

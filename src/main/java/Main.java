@@ -5,8 +5,8 @@ public class Main {
 
          WordProcessor w=new WordProcessor();
          String testString = " this apple is like banana \n /";
-         String replaceword = "this";
-         String replacewithword = "that";
+         String replaceword = "";
+         String replacewithword = "";
 
          if(args!= null){
              if(args.length >= 1){
