@@ -1,5 +1,6 @@
 Running Using Jar:
-    java -cp <WordAnalysisProject_PATH> Main "Test String"
+    java -cp <WordAnalysisProject_PATH> Main <DATA> <oReplace> <ReplaceWith>
+    java -cp <WordAnalysisProject_PATH> Main "Hi there!"
     Note : Executable jar file is located under target directory.
     example:
     java -cp WordAnalysisProject-1.0-SNAPSHOT.jar Main "This is Test String to Test the program"
@@ -29,6 +30,12 @@ To Run test:
     You would need maven setup. Please follow instruction at https://maven.apache.org/install.html.
     Once maven is installed. Run following command in project directory.
     mvn test
+    
+    
+To Replace word:
+    Use 2nd and 3rd argument
+    java -cp <WordAnalysisProject_PATH> Main "Hi there!" "Hi" "hello"
+    hello there!
 
 
 
