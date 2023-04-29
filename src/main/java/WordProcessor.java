@@ -48,9 +48,15 @@ class WordProcessor {
     }
 
     public String replaceWords(String data, String toReplace, String replaceWith){
+        if(toReplace.isEmpty()) return data;
+        if(toReplace.contains(" ") || replaceWith.contains(" ")){
+            throw new IllegalArgumentException(replaceWith);
+        }
+        return data.replaceAll("\\b"+ toReplace+ "\\b",replaceWith);
+    }
+    public String replaceWords1(String data, String toReplace, String replaceWith){
          if(replaceWith.contains(" ")){
              throw new IllegalArgumentException(replaceWith);
-
          }
          if(toReplace.contains(" ")){
              throw new IllegalArgumentException(toReplace);

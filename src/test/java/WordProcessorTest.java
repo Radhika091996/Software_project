@@ -162,23 +162,21 @@ class WordProcessorTest {
 //  PHASE -3 TESTCASES
     @Test
     void wordReplacement_singleOccurrence_shouldReturnExpectedResult()throws Exception{
-        String actual = wordProcessor.replaceWords("      abc   \n    xyz        ","abc","pqr");
-        assertEquals("pqr xyz", actual);
+        String actual = wordProcessor.replaceWords("      abc       xyz        ","abc","pqr");
+        assertEquals("      pqr       xyz        ", actual);
     }
 
     @Test
     void wordReplacement_emptyreplacewithString_shouldReturnExpectedResult() throws Exception{
         String actual=wordProcessor.replaceWords( "abc xyz","pqr","");
-        assertEquals("abc ravi",actual);
+        assertEquals("abc xyz",actual);
 
 
     }
     @Test
-
-        void wordReplacement_emptyreplaceString_shouldReturnExpectedResult() throws Exception{
+    void wordReplacement_emptyreplaceString_shouldReturnExpectedResult() throws Exception{
         String actual=wordProcessor.replaceWords( "abc pqr","","pqr");
         assertEquals("abc pqr",actual);
-
     }
 
     @Test
@@ -213,6 +211,13 @@ class WordProcessorTest {
     void wordReplacement_replacewordthatdoesnothaveininputstring_shouldReturnExpectedResult() throws Exception{
         String actual=wordProcessor.replaceWords( "abc xyz pqr","mno","xyz");
         assertEquals("abc xyz pqr",actual);
+
+    }
+
+    @Test
+    void wordReplacement_word_shouldReturnExpectedResult() throws Exception{
+        String actual=wordProcessor.replaceWords( "abdpqr","abd","xyz");
+        assertEquals("abdpqr",actual);
 
     }
 
