@@ -3,7 +3,6 @@ import java.util.HashMap;
 
 class WordProcessor {
     HashMap<String, Integer> wordCountMap = new HashMap<String, Integer>();
-
     int numberOfLines =0;
     int numOfCharacters=0;
 
@@ -30,7 +29,6 @@ class WordProcessor {
     private void updateCount(String[] words) {
         for (String word: words) {
             if(word.isEmpty()) continue;
-
             // count number of character
             for (char character:word.toCharArray()){
                 if((character >= 'a' && character <= 'z') || (character >= 'A' && character <= 'Z'))
@@ -52,22 +50,5 @@ class WordProcessor {
             throw new IllegalArgumentException(replaceWith);
         }
         return data.replaceAll("\\b"+ toReplace+ "\\b",replaceWith);
-    }
-    public String replaceWords1(String data, String toReplace, String replaceWith){
-         if(replaceWith.contains(" ")){
-             throw new IllegalArgumentException(replaceWith);
-         }
-         if(toReplace.contains(" ")){
-             throw new IllegalArgumentException(toReplace);
-         }
-        String[] words = data.trim().split("\\s+");
-        int i =0;
-        for(String word:words){
-            if(word.equals(toReplace)){
-                words[i]=replaceWith;
-            }
-            i++;
-        }
-        return String.join(" ",words);
     }
 }
